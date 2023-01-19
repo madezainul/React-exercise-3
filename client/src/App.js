@@ -6,6 +6,7 @@ import './App.css';
 import 'bootstrap/dist/css/bootstrap.css';
 import {
   Navbar,
+  Banner,
   MainContent
 } from './components';
 
@@ -14,6 +15,7 @@ function App() {
     <div className="main-page container-fluid w-100 bg-dark">
       <BrowserRouter>
         <Navbar></Navbar>
+        <Banner></Banner>
         <MainContent></MainContent>
       </BrowserRouter>
     </div>

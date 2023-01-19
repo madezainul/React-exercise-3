@@ -5,26 +5,23 @@ const Navbar = () => {
   return (
     <>
       <div className="row align-items-start">
-        <nav className="navbar navbar-expand-lg bg-secondary navbar-dark sticky-top px-4 py-0">
-          <div className="navbar-nav align-items-center mr-auto">
-            <Link href="#" className="nav-link">Home</Link>
-          </div>
-          <div className="navbar-nav align-items-center ms-auto">
-            <div className="collapse navbar-collapse" id="navbarNav">
-              <ul className="navbar-nav">
-                <li className="nav-item">
-                  <Link to="#" className="nav-link">+ Add Movies</Link>
-                </li>
-                <li className="nav-item">
-                  <Link to="#" className="nav-link">+ Add Genres</Link>
-                </li>
-                <span></span>
-                <li className="nav-item">
-                  <Link to="#" className="nav-link">Login</Link>
-                </li>
-              </ul>
+      <nav className="navbar navbar-expand-lg navbar-light bg-light">
+            <div className="container px-4 px-lg-5">
+                <Link className="navbar-brand" to="/">Movies</Link>
+                <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span className="navbar-toggler-icon"></span></button>
+                <div className="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul className="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
+                        <li className="nav-item"><Link className="nav-link active" aria-current="page" to="/">Home</Link></li>
+                        <li className="nav-item"><Link className="nav-link" to="/movies/create">Add Movies</Link></li>
+                        <li className="nav-item"><Link className="nav-link" to="#">Add Genres</Link></li>
+                    </ul>
+                    <form className="d-flex">
+                        <button className="btn btn-outline-dark" type="submit">
+                            Login
+                        </button>
+                    </form>
+                </div>
             </div>
-          </div>
         </nav>
       </div>
     </>

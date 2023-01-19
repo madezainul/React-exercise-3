@@ -15,26 +15,13 @@ class MovieController {
     }
 
     static async create(req, res) {
-        // try {
-        //     const { title, price, release, rating, studio, desc } = req.body;
-        //     const newMovie = await movie.create({ title, image, price });
-        //     await moviedetail.create({ release, rating, studio, desc, movieId: newMovie.id });
-            // for (const genre of genres) {
-            //     moviegenre.create({ movieId: newMovie.id, genreId: genre });
-            // }
-            // const result = await movie.findOne({
-            //     where: { id: newMovie.id },
-            //     include: [moviedetail, genre]
-            // })
-            // res.json(result)
-            // console.log(result)
-        // } catch (error) {
-        //     res.json(error)
-        // }
         try {
-            const { title, price, release, rating, studio, desc } = req.body
-            const newMovie = await movie.create({title, price})
+            const { title, price, release, rating, studio, desc, genres } = req.body
+            const newMovie = await movie.create({title, price, image: req.file.filename})
             await moviedetail.create({ release, rating, studio, desc, movieId: newMovie.id })
+            for (const genre of genres) {
+                moviegenre.create({ movieId: newMovie.id, genreId: genre })
+            }
             let result = await newMovie.findOne({
                 where: {id: newMovie.id},
                 include: [moviedetail]
